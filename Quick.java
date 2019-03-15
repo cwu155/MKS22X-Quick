@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class Quick{
-  public static int median;
 
   /*Modify the data array such that:
    *1. Only the indices from start to end inclusive are considered in range
@@ -22,19 +21,21 @@ public class Quick{
     while (start <= end){
 
       while (data[start] < pivot){
-        start++;
+        start += 1;
       }
 
       while (data[end] > pivot){
-        end--;
+        end -= 1;
       }
 
-      if (start <= end){
+      if (start >= end){
+        break;
+      } else if (start < end){
         int temp = data[start];
         data[start] = data[end];
         data[end] = temp;
-        start++;
-        end--;
+        start += 1;
+        end -= 1;
       }
     }
 
@@ -45,8 +46,8 @@ public class Quick{
 
 
   public static void main(String[] args) {
-    int[] test = new int[]{10, 10, 6,4 ,12};
-    partition(test, 0, 4);
+    int[] test = new int[]{999,999,999,4,1,0,3,2,999,999,999};
+    System.out.println(partition(test, 0, 10));
     for (int element : test){System.out.println(element);}
   }
 }
