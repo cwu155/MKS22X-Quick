@@ -15,14 +15,16 @@ public class Quick{
 
   public static int partition(int[] data, int start, int end){
 
-    //Random rand = new Random();
-    //int index = rand.nextInt(data.length);
-    int pivot = data[0];
+    Random rand = new Random();
+    int index = rand.nextInt(data.length);
+    int pivot = data[index];
 
     while (start <= end){
+
       while (data[start] < pivot){
         start++;
       }
+
       while (data[end] > pivot){
         end--;
       }
@@ -43,8 +45,8 @@ public class Quick{
 
 
   public static void main(String[] args) {
-    int[] test = new int[]{4, 7, 8, 10, 11, 3, 9, 5, 6, 22,};
-    partition(test, 0, 8);
+    int[] test = new int[]{10, 10, 6,4 ,12};
+    partition(test, 0, 4);
     for (int element : test){System.out.println(element);}
   }
 }
