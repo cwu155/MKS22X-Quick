@@ -66,6 +66,7 @@ import java.util.Arrays;
      * Test your sort here //yoursort(start);
      * Add code to switch which sort is tested by changing one of the args!
      */
+     quicksort(start);
     long elapsedTime = System.currentTimeMillis() - startTime;
     if(Arrays.equals(start,result)){
       System.out.println("PASS Case "+name(type)+"\t array, size:"+start.length+"\t"+elapsedTime/1000.0+"sec ");

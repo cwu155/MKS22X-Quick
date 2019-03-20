@@ -26,21 +26,20 @@ public class Quick{
     while (data[start] < pivot){
       start += 1;
     }
+
     while (data[end] > pivot){
       end -= 1;
     }
 
-    if (start < end){
+    if (!(end < start)){
       int temp = data[start];
       data[start] = data[end];
       data[end] = temp;
-
-      //start += 1;
-      //end -= 1;
     }
   }
+
   System.out.println("pivot: " + pivot);
-  return end;
+  return start + 1;
 }
 
   /*return the value that is the kth smallest value of the array. k=0 is the smallest*/
@@ -57,13 +56,15 @@ public class Quick{
 
 
 public static void quicksortH(int[] data, int start, int end) {
-    if (end - start <= 0) {
+
+  if (end - start <= 0) {
+      return;
+    } else {
       int split = partition(data, start, end);
       quicksortH(data, start, split- 1);
       quicksortH(data, split + 1, end);
     }
 }
-
 
 public static void quicksort(int[] data) {
   quicksortH(data, 0, data.length - 1);
@@ -72,8 +73,9 @@ public static void quicksort(int[] data) {
 
   public static void main(String[] args) {
     int[] test = new int[]{54,26,93,17,77,31,44,55,20};
-    //quicksort(test);
-    partition(test, 0, 8);
+    quicksort(test);
+    //partition(test, 0, 8);
+
     for (int e : test){System.out.println(e);}
   }
 }
