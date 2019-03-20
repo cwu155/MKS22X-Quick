@@ -12,6 +12,19 @@ public class Quick{
    *@return the index of the final position of the pivot element.
    */
 
+   public static void insertionSort(int[] data, int o, int c){
+     int orig = o;
+     int current = c;
+     for (int i = 1; i < data.length; i++){
+       orig = i-1;
+       current = data[i];
+       while (orig >= 0 && current < data[orig]){
+          data[orig+1] = data[orig];
+          orig = orig-1;
+         }
+         data[orig+1] = current;
+       }
+     }
 
   public static int partition(int[] data, int start, int end){
 
@@ -57,7 +70,8 @@ public class Quick{
 
 public static void quicksortH(int[] data, int start, int end) {
 
-  if (end - start <= 0) {
+  if (end - start <= 10) {
+      insertionSort(data,start,end);
       return;
     } else {
       int split = partition(data, start, end);
@@ -74,7 +88,8 @@ public static void quicksort(int[] data) {
   public static void main(String[] args) {
     int[] test = new int[]{54,26,93,17,77,31,44,55,20};
     quicksort(test);
-    //partition(test, 0, 8);
+
+    //System.out.println(partition(test, 0, 8));
 
     for (int e : test){System.out.println(e);}
   }
