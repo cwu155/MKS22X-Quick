@@ -23,26 +23,25 @@ public class Quick{
 
     while (start + 1 < end){
 
-      while (data[start] < pivot){
-        start += 1;
-      }
-
-      while (data[end] > pivot){
-        end -= 1;
-      }
-
-      if (start < end){
-        int temp = data[start];
-        data[start] = data[end];
-        data[end] = temp;
-
-        start += 1;
-        end -= 1;
-      }
+    while (data[start] < pivot){
+      start += 1;
     }
-    System.out.println("pivot: " + pivot);
-    return start;
+    while (data[end] > pivot){
+      end -= 1;
+    }
+
+    if (start < end){
+      int temp = data[start];
+      data[start] = data[end];
+      data[end] = temp;
+
+      //start += 1;
+      //end -= 1;
+    }
   }
+  System.out.println("pivot: " + pivot);
+  return end;
+}
 
   /*return the value that is the kth smallest value of the array. k=0 is the smallest*/
 
@@ -57,9 +56,8 @@ public class Quick{
   }
 
 
-//I don't know how to write quickSort without a helper?? :(
 public static void quicksortH(int[] data, int start, int end) {
-    if (!(end - start <= 0)) {
+    if (end - start <= 0) {
       int split = partition(data, start, end);
       quicksortH(data, start, split- 1);
       quicksortH(data, split + 1, end);
@@ -73,9 +71,9 @@ public static void quicksort(int[] data) {
 
 
   public static void main(String[] args) {
-    int[] test = new int[]{10, 6,4 ,12, 13, 1, 22, 19};
+    int[] test = new int[]{54,26,93,17,77,31,44,55,20};
     //quicksort(test);
-    partition(test, 0, 7);
+    partition(test, 0, 8);
     for (int e : test){System.out.println(e);}
   }
 }
