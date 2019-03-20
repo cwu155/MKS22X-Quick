@@ -51,7 +51,7 @@ public class Quick{
     }
   }
 
-  System.out.println("pivot: " + pivot);
+  //System.out.println("pivot: " + pivot);
   return start + 1;
 }
 
@@ -70,7 +70,7 @@ public class Quick{
 
 public static void quicksortH(int[] data, int start, int end) {
 
-  if (end - start <= 10) {
+  if (end - start <= 0) {
       insertionSort(data,start,end);
       return;
     } else {
